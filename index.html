@@ -1,0 +1,676 @@
+<html lang="pt-br"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vem pro Lado Certo — Chapa 2</title>
+  <meta name="description" content="Campanha política odontológica — Vem pro Lado Certo (Chapa 2). Propostas, equipe e contato por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=Poppins:wght@600;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#002776; --green:#009B3A; --yellow:#FFDF00; --dark:#0B0F1A; --light:#F6F7F9; --white:#FFFFFF;
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    /* ===== Base ===== */
+    *{box-sizing:border-box}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{margin:0;background:var(--dark);color:var(--light);font-family:Inter,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ===== Header / Nav ===== */
+    header{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);z-index:1000}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
+    .nav h1{font-family:Poppins,sans-serif;font-weight:900;font-size:1.4rem}
+    .nav h1 span{color:var(--yellow)}
+    .nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    .nav a{color:#fff;text-decoration:none;font-weight:600}
+
+    /* ===== Hero ===== */
+    #hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;isolation:isolate;padding:3rem 1rem}
+    .bg-gradient{position:absolute;inset:-10%;z-index:-2;filter:saturate(1.15);
+      background:radial-gradient(1200px 700px at 15% 20%, rgba(0,39,118,.9), transparent 60%),
+                 radial-gradient(1000px 600px at 85% 30%, rgba(0,155,58,.85), transparent 60%),
+                 radial-gradient(900px 600px at 50% 90%, rgba(255,223,0,.9), transparent 60%),
+                 linear-gradient(180deg, #020611, #0B0F1A 60%);
+      animation: gradientShift 16s ease-in-out infinite alternate;
+    }
+    @keyframes gradientShift{to{transform:translateY(-2%) scale(1.03) rotate(1deg)}}
+    canvas#field{position:absolute;inset:0;z-index:-1;opacity:.75}
+    .orb{position:absolute;pointer-events:none;mix-blend:screen;filter:blur(8px);opacity:.65;animation:float 9s ease-in-out infinite}
+    .orb.one{width:180px;height:180px;left:6%;top:18%;background:radial-gradient(circle,var(--yellow),transparent 70%)}
+    .orb.two{width:260px;height:260px;right:10%;top:24%;animation-duration:13s;background:radial-gradient(circle,var(--green),transparent 70%)}
+    .orb.three{width:220px;height:220px;left:30%;bottom:6%;animation-duration:11s;background:radial-gradient(circle,var(--blue),transparent 70%)}
+    @keyframes float{50%{transform:translateY(-14px) translateX(6px) scale(1.03)}}
+    .hero-inner h2{font-size:3rem;font-family:Poppins,sans-serif;font-weight:900;text-shadow:0 0 20px rgba(255,223,0,.7);margin:0 1rem}
+    .subtitle{max-width:780px;margin:1rem auto;font-size:1.2rem;opacity:.9}
+    .cta{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:12px}
+
+    /* Countdown card */
+    .countdown-card{
+      margin:1.25rem auto 0;
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      padding:14px 18px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      max-width:920px;
+      flex-wrap:wrap;
+    }
+    .countdown-left{display:flex;flex-direction:column;align-items:center;gap:6px}
+    .countdown-number{font-family:Poppins, sans-serif;font-weight:900;font-size:2.2rem;color:var(--yellow);letter-spacing:-.4px}
+    .countdown-desc{font-size:0.98rem;opacity:.95}
+    .countdown-timer{display:flex;gap:10px;align-items:center;font-weight:700}
+    .time-segment{background:rgba(255,255,255,.03);padding:10px 12px;border-radius:10px;min-width:68px;text-align:center;border:1px solid rgba(255,255,255,.06)}
+    .time-value{font-size:1.25rem;font-weight:900}
+    .time-label{font-size:0.7rem;opacity:.8;margin-top:4px}
+
+    /* ===== Buttons ===== */
+    .btn{position:relative;display:inline-block;padding:.85rem 1.25rem;border-radius:12px;margin:.2rem;font-weight:700;box-shadow:0 0 20px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.14);transition:transform .18s ease,box-shadow .18s ease}
+    .btn-primary{background:linear-gradient(90deg,var(--yellow),var(--green));color:#000}
+    .btn-ghost{background:rgba(255,255,255,.06);color:#fff}
+    .where-btn{background:linear-gradient(90deg,var(--blue),var(--green));color:#fff;border:1px solid rgba(255,255,255,.12)}
+
+    /* ===== Sections ===== */
+    section{padding:4rem 2rem}
+    .section-title{font-size:2rem;font-weight:900;font-family:Poppins,sans-serif;margin-bottom:.5rem}
+    .section-sub{opacity:.8;margin-bottom:2rem}
+
+    /* ===== Cards / Grids ===== */
+    .propostas,.team{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .card{background:rgba(255,255,255,.05);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+    .card h4{margin:.5rem 0}
+    .card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-120%)}
+    .card:hover::after{animation:shine .8s}
+    @keyframes shine{to{transform:translateX(120%)}}
+
+    .member{background:rgba(255,255,255,.05);border-radius:16px;overflow:hidden;text-align:center;padding-bottom:1rem;border:1px solid rgba(255,255,255,.12)}
+    .member img{width:100%;height:400px;object-fit:cover}
+    .member h4{margin:.5rem 0 0}
+    .member p{margin:.2rem 0;opacity:.85}
+    .bar{height:3px;background:linear-gradient(90deg,var(--blue),var(--green),var(--yellow))}
+    .icon-btn{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px)}
+
+    .justice{background:#1a2238;color:#fff;padding:2rem;border-radius:18px;box-shadow:0 0 25px rgba(0,0,0,.4);margin-top:2rem}
+    .justice h4{margin-top:0;color:var(--yellow)}
+    .justice p{opacity:.9}
+
+    .team-controls{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+    .team-controls input, .team-controls select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--light);padding:10px 12px;border-radius:12px}
+    .team-pagination{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .page-dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.35);cursor:pointer}
+    .page-dot.active{background:var(--yellow)}
+
+    .defesa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .defesa-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:18px;position:relative;overflow:hidden}
+    .defesa-card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-120%)}
+    .defesa-card:hover::after{animation:shine .9s ease}
+
+    .alerta-urgente{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:18px;padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:linear-gradient(90deg, rgba(255,223,0,.15), rgba(0,155,58,.15))}
+
+    .carousel{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px}
+    .carousel-track{display:flex;gap:12px;will-change:transform;padding:12px}
+    .slide{min-width:280px;flex:0 0 280px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px}
+    .slide h4{margin:0 0 6px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+    .cbtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.25);color:#fff;padding:8px 10px;border-radius:10px}
+    #prev{left:8px} #next{right:8px}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    footer{padding:2rem;text-align:center;opacity:.8}
+
+    /* Diagnostics */
+    details#diagnostics{max-width:980px;margin:2rem auto;padding:1rem;border-radius:12px;border:1px dashed rgba(255,255,255,.25);background:rgba(255,255,255,.04)}
+    #test-results{list-style:none;padding-left:0;display:grid;gap:.4rem}
+    .pass{color:#9BE28C} .fail{color:#FF8A8A}
+
+    @media (max-width:780px){ .hero-inner h2{font-size:2.2rem} .countdown-timer{gap:8px} .time-segment{min-width:56px;padding:8px} .countdown-number{font-size:1.5rem} }
+  </style>
+<style type="text/css" id="operaUserStyle">
+  img {
+    filter: -opera-shader(url(data:text/plain;base64,Ly8gaHR0cHM6Ly9naXRodWIuY29tL0dQVU9wZW4tRWZmZWN0cy9GaWRlbGl0eUZYLUNBUwovLyB2MwoKdW5pZm9ybSBzaGFkZXIgaUNodW5rOwp1bmlmb3JtIGZsb2F0MiBpQ2h1bmtTaXplOwp1bmlmb3JtIGZsb2F0MiBpTW91c2U7CnVuaWZvcm0gZmxvYXQgaUFyZ3NbMV07Cgpjb25zdCBmbG9hdCBFUFNJT04gPSAwLjE7CmNvbnN0IGZsb2F0IFZfTUlOID0gMDsKY29uc3QgZmxvYXQgVl9MT1cgPSAwLjI1Owpjb25zdCBmbG9hdCBWX01FRCA9IDAuNTsKY29uc3QgZmxvYXQgVl9ISUdIID0gMC43NTsKY29uc3QgZmxvYXQgVl9NQVggPSAxOwoKY29uc3QgZmxvYXQgVEhSRVNIT0xEX0FSRUEgPSA4MDAgKiA2MDA7CmNvbnN0IGZsb2F0IE1JTl9BUkVBID0gNDAwICogMTAwOwpjb25zdCBmbG9hdCBNSU5fU1RSSVAgPSAyMDsKY29uc3QgZmxvYXQgTUFSR0lOID0gMTsKCmZsb2F0MyBwaXhlbChpbnQgeCwgaW50IHksIGZsb2F0MiB4eSkgewogICAgcmV0dXJuIGlDaHVuay5ldmFsKHh5ICsgZmxvYXQyKHgsIHkpKS5yZ2I7Cn0KCmZsb2F0MyBzaGFycGVuKGZsb2F0MiB4eSkgewogICAgZmxvYXQzIGYgPQogICAgICAgIHBpeGVsKC0xLCAtMSwgeHkpICogIDEgKwogICAgICAgIHBpeGVsKCAwLCAtMSwgeHkpICogLTEgKwogICAgICAgIHBpeGVsKCAxLCAtMSwgeHkpICogIDEgKwoKICAgICAgICBwaXhlbCgtMSwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMCwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMSwgMCwgeHkpICogLTEgICsKCiAgICAgICAgcGl4ZWwoLTEsIDEsIHh5KSAqIDEgICArCiAgICAgICAgcGl4ZWwoIDAsIDEsIHh5KSAqIC0xICArCiAgICAgICAgcGl4ZWwoIDEsIDEsIHh5KSAqIDE7CiAgICByZXR1cm4gZiAvIC0xOwp9CgpmbG9hdDQgUkdYMihmbG9hdDIgeHkpIHsKICAgIGZsb2F0NCBjb2xvciA9IGlDaHVuay5ldmFsKHh5KTsKCiAgICBpZiAoaUNodW5rU2l6ZS54ICogaUNodW5rU2l6ZS55IDwgTUlOX0FSRUEpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKGlDaHVua1NpemUueSA8IE1JTl9TVFJJUCB8fCBpQ2h1bmtTaXplLnggPCBNSU5fU1RSSVApIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKHh5LnggPCBNQVJHSU4gfHwgeHkueCA+IChpQ2h1bmtTaXplLnggLSBNQVJHSU4pIHx8CiAgICAgICAgeHkueSA8IE1BUkdJTiB8fCB4eS55ID4gKGlDaHVua1NpemUueSAtIE1BUkdJTikpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgcmV0dXJuIGZsb2F0NChzaGFycGVuKHh5KSwgMSk7Cn0KCmZsb2F0IG1pbjMoZmxvYXQgeCwgZmxvYXQgeSwgZmxvYXQgeikgewogICAgcmV0dXJuIG1pbih4LCBtaW4oeSwgeikpOwp9CgpmbG9hdCBtYXgzKGZsb2F0IHgsIGZsb2F0IHksIGZsb2F0IHopIHsKICAgIHJldHVybiBtYXgoeCwgbWF4KHksIHopKTsKfQoKZmxvYXQgcmNwKGZsb2F0IHYpIHsKICAgIHJldHVybiAxIC8gdjsKfQoKZmxvYXQzIFJHWDMoZmxvYXQyIHh5LCBmbG9hdCBzdHJlbmd0aCkgewogICAgZmxvYXQzIGEgPSBwaXhlbCgtMSwgLTEsIHh5KTsKICAgIGZsb2F0MyBiID0gcGl4ZWwoIDAsIC0xLCB4eSk7CiAgICBmbG9hdDMgYyA9IHBpeGVsKCAxLCAtMSwgeHkpOwoKICAgIGZsb2F0MyBkID0gcGl4ZWwoLTEsIDAsIHh5KTsKICAgIGZsb2F0MyBlID0gcGl4ZWwoIDAsIDAsIHh5KTsKICAgIGZsb2F0MyBmID0gcGl4ZWwoIDEsIDAsIHh5KTsKCiAgICBmbG9hdDMgZyA9IHBpeGVsKC0xLCAxLCB4eSk7CiAgICBmbG9hdDMgaCA9IHBpeGVsKCAwLCAxLCB4eSk7CiAgICBmbG9hdDMgaSA9IHBpeGVsKCAxLCAxLCB4eSk7CgogICAgZmxvYXQgbW5SID0gbWluMyhtaW4zKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBtbkcgPSBtaW4zKG1pbjMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG1uQiA9IG1pbjMobWluMyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG1uUjIgPSBtaW4zKG1pbjMobW5SLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG1uRzIgPSBtaW4zKG1pbjMobW5HLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG1uQjIgPSBtaW4zKG1pbjMobW5CLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBtblIgPSBtblIgKyBtblIyOwogICAgbW5HID0gbW5HICsgbW5HMjsKICAgIG1uQiA9IG1uQiArIG1uQjI7CgogICAgZmxvYXQgbXhSID0gbWF4MyhtYXgzKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBteEcgPSBtYXgzKG1heDMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG14QiA9IG1heDMobWF4MyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG14UjIgPSBtYXgzKG1heDMobXhSLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG14RzIgPSBtYXgzKG1heDMobXhHLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG14QjIgPSBtYXgzKG1heDMobXhCLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBteFIgPSBteFIgKyBteFIyOwogICAgbXhHID0gbXhHICsgbXhHMjsKICAgIG14QiA9IG14QiArIG14QjI7CgogICAgZmxvYXQgcmNwTVIgPSByY3AobXhSKTsKICAgIGZsb2F0IHJjcE1HID0gcmNwKG14Ryk7CiAgICBmbG9hdCByY3BNQiA9IHJjcChteEIpOwoKICAgIGZsb2F0IGFtcFIgPSBzYXR1cmF0ZShtaW4obW5SLCAyIC0gbXhSKSAqIHJjcE1SKTsKICAgIGZsb2F0IGFtcEcgPSBzYXR1cmF0ZShtaW4obW5HLCAyIC0gbXhHKSAqIHJjcE1HKTsKICAgIGZsb2F0IGFtcEIgPSBzYXR1cmF0ZShtaW4obW5CLCAyIC0gbXhCKSAqIHJjcE1CKTsKCiAgICBhbXBSID0gc3FydChhbXBSKTsKICAgIGFtcEcgPSBzcXJ0KGFtcEcpOwogICAgYW1wQiA9IHNxcnQoYW1wQik7CgogICAgZmxvYXQgcGVhayA9IC1yY3AobWl4KDgsIDUsIHN0cmVuZ3RoKSk7CgogICAgZmxvYXQgd1IgPSBhbXBSICogcGVhazsKICAgIGZsb2F0IHdHID0gYW1wRyAqIHBlYWs7CiAgICBmbG9hdCB3QiA9IGFtcEIgKiBwZWFrOwoKICAgIGZsb2F0IHJjcFdlaWdodFIgPSByY3AoMSArIDQgKiB3Uik7CiAgICBmbG9hdCByY3BXZWlnaHRHID0gcmNwKDEgKyA0ICogd0cpOwogICAgZmxvYXQgcmNwV2VpZ2h0QiA9IHJjcCgxICsgNCAqIHdCKTsKCiAgICByZXR1cm4gZmxvYXQzKAogICAgICAgIHNhdHVyYXRlKChiLnIgKiB3UiArIGQuciAqIHdSICsgZi5yICogd1IgKyBoLnIgKiB3UiArIGUucikgKiByY3BXZWlnaHRSKSwKICAgICAgICBzYXR1cmF0ZSgoYi5nICogd0cgKyBkLmcgKiB3RyArIGYuZyAqIHdHICsgaC5nICogd0cgKyBlLmcpICogcmNwV2VpZ2h0RyksCiAgICAgICAgc2F0dXJhdGUoKGIuYiAqIHdCICsgZC5iICogd0IgKyBmLmIgKiB3QiArIGguYiAqIHdCICsgZS5iKSAqIHJjcFdlaWdodEIpKTsKfQoKCmZsb2F0NCBtYWluKGZsb2F0MiB4eSkgewoKICAgIGZsb2F0NCBvcmlnaW5hbENvbG9yID0gaUNodW5rLmV2YWwoeHkpOwogICAgaWYgKG9yaWdpbmFsQ29sb3IuYSA8IDEpIHsKICAgICAgICByZXR1cm4gaUNodW5rLmV2YWwoeHkpOwogICAgfQoKICAgIGZsb2F0IGludGVuc2l0eSA9IGlBcmdzWzBdOwogICAgZmxvYXQgc3RyZW5ndGggPSAwOwogICAgZmxvYXQzIGNvbG9yOwoKICAgIGlmIChpbnRlbnNpdHkgPCBWX01JTiArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMC4xMDsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfTE9XIC0gRVBTSU9OICYmIGludGVuc2l0eSA8IFZfTE9XICsgRVBTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAwLjMzOwogICAgICAgIGNvbG9yID0gUkdYMyh4eSwgc3RyZW5ndGgpOwoKICAgIH0gZWxzZSBpZiAoaW50ZW5zaXR5ID4gVl9NRUQgLSBFUFNJT04gJiYgaW50ZW5zaXR5IDwgVl9NRUQgKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuNTsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfSElHSCAtIEVQU0lPTiAmJiBpbnRlbnNpdHkgPCBWX0hJR0ggKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuOTk7CiAgICAgICAgY29sb3IgPSBSR1gzKHh5LCBzdHJlbmd0aCk7CgogICAgfSBlbHNlIGlmIChpbnRlbnNpdHkgPiBWX01BWCAtIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMTsKICAgICAgICBjb2xvciA9IFJHWDIoeHkpLnJnYjsKICAgIH0KCiAgICByZXR1cm4gZmxvYXQ0KGNvbG9yLCBvcmlnaW5hbENvbG9yLmEpOwp9) -opera-args(1.00 calc(env(-opera-accent-color-r, 255)/255) calc(env(-opera-accent-color-g, 255)/255) calc(env(-opera-accent-color-b, 255)/255)));
+  }
+</style></head>
+<body>
+
+  <!-- HERO with Canvas + Orbs -->
+  <section id="hero" aria-labelledby="h-title">
+    <div class="bg-gradient"></div>
+    <canvas id="field" aria-hidden="true" width="1766" height="772"></canvas>
+    <div class="orb one" style="transform: translate(-4.84485px, 5.07826px);"></div>
+    <div class="orb two" style="transform: translate(-6.4598px, 6.34783px);"></div>
+    <div class="orb three" style="transform: translate(-8.07475px, 7.61739px);"></div>
+
+    <div class="hero-inner">
+      <h2 id="h-title">Vem pro Lado Certo — Vote Chapa 2!</h2>
+      <p class="subtitle">Chega de perseguição e descaso! Nossa missão é devolver ao dentista o respeito, a liberdade de exercer sua profissão e a valorização que ele merece. Junte-se a nós e faça parte da mudança — #VemProLadoCerto</p>
+      <div class="cta">
+        <a href="#propostas" class="btn btn-primary">⚡ Ver Propostas</a>
+        <a href="https://www.instagram.com/vemproladocerto" class="btn btn-ghost" target="_blank" rel="noopener">💬 Acesse nosso instagram</a>
+      </div>
+
+      <!-- Countdown card -->
+      <div class="countdown-card" role="region" aria-live="polite" aria-label="Contagem regressiva para o dia da votação">
+        <div class="countdown-left">
+          <div class="countdown-number" id="countdown-title">Faltam 12 dias — é em 03 de outubro</div>
+          <div class="countdown-desc" id="countdown-sub">Data alvo: <span id="target-date">03 de outubro de 2025</span></div>
+        </div>
+
+        <div id="countdown-timer" class="countdown-timer" aria-hidden="false">
+          <div class="time-segment" aria-label="dias restantes">
+            <div class="time-value" id="days">12</div>
+            <div class="time-label">Dias</div>
+          </div>
+          <div class="time-segment" aria-label="horas restantes">
+            <div class="time-value" id="hours">05</div>
+            <div class="time-label">Horas</div>
+          </div>
+          <div class="time-segment" aria-label="minutos restantes">
+            <div class="time-value" id="minutes">44</div>
+            <div class="time-label">Minutos</div>
+          </div>
+          <div class="time-segment" aria-label="segundos restantes">
+            <div class="time-value" id="seconds">12</div>
+            <div class="time-label">Segundos</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-left:8px;">
+          <a id="where-btn" class="btn where-btn" href="https://www.google.com/maps/search/local+de+votação" target="_blank" rel="noopener noreferrer">
+            📍 Clique aqui para saber onde votar
+          </a>
+          <button id="add-calendar" class="btn btn-ghost" title="Adicionar lembrete (abre em nova aba)">
+            ➕ Adicionar lembrete no calendário
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="propostas">
+    <h3 class="section-title">Nossas Propostas </h3>
+    <p class="section-sub">Direcionadas à valorização, à orientação, ao respeito, à fiscalização humanizada, à defesa dos profissionais e ao apoio imediato.</p>
+
+    <div class="propostas">
+      <div class="card reveal in">
+        <h4>Piso salarial</h4>
+        <p>Atuar em conjunto com o CFO pela implementação do piso salarial, promovendo articulação com parlamentares, elaboração de estudos técnicos, negociação com órgãos competentes e mobilização social. Buscar aprovação no Senado, garantir cronograma de implantação, fiscalização do cumprimento e amparo aos profissionais. urgente.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Fiscalização Humanizada e Educativa</h4>
+        <p>Transformar a fiscalização do CRO em ferramenta de educação e prevenção, substituindo o modelo punitivo por uma abordagem orientativa que estimule o desenvolvimento técnico e garanta segurança ao paciente, com programas de capacitação, acompanhamento e canais de apoio ao profissional, promovendo transparência e melhoria.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>CANAL EXCLUSIVO E SIGILOSO</h4>
+        <p>Oferecemos orientação técnica detalhada, acompanhamento e pareceres técnico-operacionais; respaldo jurídico inicial para formalização de procedimentos e orientações legais; encaminhamento e indicação de especialistas qualificados em diversas áreas, com contatos e apoio na coordenação de atendimentos, monitoria contínua.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Criação do Hospital Odontológico Integrado</h4>
+        <p>Construir o primeiro Hospital Odontológico de Referência do estado, com infraestrutura completa para atendimento de urgências, cirurgias ambulatoriais e centro cirúrgico equipado, e internações, servindo como suporte para dentistas e centro de acesso à população em parceria com o governo.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Disque Intercorrências</h4>
+        <p>Linha de apoio para complicações clínicas, com protocolos de manejo imediato e fluxos de atendimento estruturados, reduzindo agravos, orientando condutas e garantindo suporte técnico 24/7; inclusão de teleconsulta, monitoramento contínuo, registro padronizado e treinamento para equipes.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Flexibilização das redes sociais</h4>
+        <p>Propomos flexibilizar o uso das redes sociais para que dentistas possam divulgar, educar e vender seus serviços de forma ética, sem medo de processos. Fiscalização orientativa, com foco em informar antes de punir, promovendo transparência e liberdade profissional.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Proposta DIVA — Acolhimento Integral</h4>
+        <p>Programa de acolhimento e suporte voltado a dentistas vítimas de violência ou em situação de vulnerabilidade, com rede integrada de atendimento, encaminhamentos clínicos e jurídicos, apoio psicológico, sigilo e acompanhamento para reinserção.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Mutirões de Prevenção &amp; Escolas</h4>
+        <p>Campanhas em escolas e comunidades: fluorterapia, aplicação de selantes e ações educativas para prevenção da cárie, promoção da higiene bucal, orientação a famílias e capacitação de educadores, ampliando acesso e reduzindo desigualdades.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Mão Direita / Protético</h4>
+        <p>Valorização do protético com educação continuada gratuita, acesso a cursos de atualização e certificação de qualidade. Criação de plano de aposentadoria em parceria com o INSS, garantindo segurança financeira e reconhecimento profissional.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Mão Direita ASB e TSB</h4>
+        <p>Valorização das ASB e TSB com plano de aposentadoria em parceria com o INSS, garantindo futuro digno. Ofereceremos educação continuada gratuita e cursos de atualização, reconhecendo seu papel essencial na equipe odontológica e fortalecendo a profissão.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Carteira Oficial de Estudante de Odontologia</h4>
+        <p>Mais inclusão, valorização e oportunidades para os futuros dentistas: emissão da Carteira de Estudante Oficial de Odontologia com benefícios exclusivos, descontos em cursos e eventos, acesso a estágios e programas de mentoria, prioridade em atividades científicas, apoio jurídico-educacional e facilitação de inserção profissional.</p>
+      </div>
+
+      <div class="card reveal in">
+        <h4>Educação continuada para os dentistas de Goiás</h4>
+        <p>Educação continuada com cursos, workshops e palestras em parceria com universidades e entidades de classe. Nosso objetivo é manter os profissionais atualizados, seguros e valorizados, fortalecendo a odontologia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="odonto">
+    <h3 class="section-title">Renovar e Preciso!</h3>
+    <p class="section-sub">Nova gestão, mais ética, fiscalização justa e apoio ao dentista.</p>
+    <div class="propostas">
+      <div class="card reveal in"><h4>Humilhação!</h4><p>Chega de dentistas sendo humilhados em audiências de processos éticos.</p></div>
+      <div class="card reveal in"><h4>Rede social!</h4><p>Chega de dentistas serem processados por uso de redes sociais.</p></div>
+      <div class="card reveal in"><h4>Multa!</h4><p>Chega de dentistas pagarem multas altíssimas por infrações mínimas.</p></div>
+      <div class="card reveal in"><h4>Perseguição!</h4><p>Chega de perseguição a dentistas e mulheres por exercerem oposição política.</p></div>
+    </div>
+  </section>
+
+  <section id="justica" class="justice">
+    <h3 class="section-title">Justiça para os Dentistas</h3>
+    <h4>Revisão de processos éticos.</h4>
+    <p>Dentistas que foram condenados de forma injusta ou que tramitaram sem o devido direito à ampla defesa.</p>
+  </section>
+<section id="equipe" class="container" style="display: none;">
+    <h3 class="section-title">Equipe da <span style="color:var(--green)">CHAPA 2 Efetivos </span></h3>
+    <p class="section-sub">Dentistas de excelência e pessoas íntegras, prontos para defender você e transformar&nbsp;a&nbsp;odontologia!"</p>
+
+    
+
+    <div class="team" id="team-grid" aria-live="polite"><article class="member reveal">
+        <img src="https://picsum.photos/seed/d1/600/600" alt="Dra. Ana Silva" loading="lazy">
+        <div class="info"><h4>Dra. Ana Silva</h4><p style="opacity:.9">Presidente — Clínica Geral</p><p>20 anos de prática clínica e gestão.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dra. Ana Silva">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d2/600/600" alt="Dr. João Souza" loading="lazy">
+        <div class="info"><h4>Dr. João Souza</h4><p style="opacity:.9">Vice — Odontopediatria</p><p>Saúde pública e infância.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dr. João Souza">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d3/600/600" alt="Dra. Bruna Nogueira" loading="lazy">
+        <div class="info"><h4>Dra. Bruna Nogueira</h4><p style="opacity:.9">Diretoria — Estética</p><p>Reabilitação estética e laminados.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dra. Bruna Nogueira">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d4/600/600" alt="Dr. Marcos Lima" loading="lazy">
+        <div class="info"><h4>Dr. Marcos Lima</h4><p style="opacity:.9">Diretoria — Implantodontia</p><p>Cirurgia guiada e enxertos.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dr. Marcos Lima">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d5/600/600" alt="Dra. Carla Mendes" loading="lazy">
+        <div class="info"><h4>Dra. Carla Mendes</h4><p style="opacity:.9">Diretoria — Saúde Pública</p><p>Atenção básica e prevenção.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dra. Carla Mendes">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d6/600/600" alt="Dr. Pedro Ramos" loading="lazy">
+        <div class="info"><h4>Dr. Pedro Ramos</h4><p style="opacity:.9">Conselho — Ortodontia</p><p>Alinhadores e orto preventiva.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dr. Pedro Ramos">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d7/600/600" alt="Dra. Luiza Rocha" loading="lazy">
+        <div class="info"><h4>Dra. Luiza Rocha</h4><p style="opacity:.9">Conselho — Perícia e Legal</p><p>Pareceres e perícia odontológica.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dra. Luiza Rocha">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal">
+        <img src="https://picsum.photos/seed/d8/600/600" alt="Dr. Rafael Torres" loading="lazy">
+        <div class="info"><h4>Dr. Rafael Torres</h4><p style="opacity:.9">Conselho — Clínica Geral</p><p>Clínica integrada e urgência.</p></div>
+        <div class="actions"><a class="icon-btn" href="#" target="_blank" aria-label="WhatsApp de Dr. Rafael Torres">💬</a></div>
+        <div class="bar" aria-hidden="true"></div></article></div>
+    
+  </section>
+    <section id="equipe" class="container">
+    <h3 class="section-title">Equipe da <span style="color:var(--green)">CHAPA 2 Efetivos </span></h3>
+    <p class="section-sub">Dentistas de excelência e pessoas íntegras, prontos para defender você e transformar&nbsp;a&nbsp;odontologia!</p>
+
+    
+
+    <div class="team" id="team-grid" aria-live="polite"><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1DJHMt2wl3TXm439hNsY2mqHBBsMdLHaF=w1325-h689-iv1?auditContext=prefetch" alt="Dr. João Souza" loading="lazy">
+        <div class="info"><h4>Dr. Marcelo CRO GO 9320</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/14p_9Pm1iPIaFjlQMzlL_CZC__4ghjbpg=w1325-h689-iv1?auditContext=prefetch" alt="Dra. Bruna Nogueira" loading="lazy">
+        <div class="info"><h4>Dra. Gabryela CRO GO 11263</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1H6WG3zw2bEH0J4ndjUva1NDKUUFrrKxH=w1325-h689-iv1?auditContext=prefetch" alt="Dr. Marcos Lima" loading="lazy">
+        <div class="info"><h4>Dr. Elias Gomes CRO GO 17771</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1YOwTGTNg-vwecPZt5_GzuVbpVrv551qE=w1325-h689-iv1?auditContext=prefetch" alt="Dra. Carla Mendes" loading="lazy">
+        <div class="info"><h4>Dra. Grécia Alves CRO GO 7887</h4><p style="opacity:.9">Graduação Validação UFPelotas
+</p><p>Especialista em endodontia 
+Especialista em Ortodontia 
+ Especialista&nbsp;em&nbsp;HOF</p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1Jtfj1yVG7hAkQZFs7TRCkybq7CaNkofD=w1325-h689-iv1?auditContext=prefetch" alt="Dr. Pedro Ramos" loading="lazy">
+        <div class="info"><h4>Dr. Michael CRO GO 11911</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article></div>
+    
+  </section>
+<section id="equipe" class="container">
+    <h3 class="section-title">Equipe da <span style="color:var(--green)">CHAPA 2 Suplente </span></h3>
+    <p class="section-sub">Profissionais de destaque e pessoas íntegras, prontas para defender você e renovar a odontologia.</p>
+
+    
+
+    <div class="team" id="team-grid" aria-live="polite"><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1fhaM3Fa-sTEaauOMalFiLzbV0tow18Do=w1325-h689-iv1?auditContext=forDisplay" alt="Dr. João Souza" loading="lazy">
+        <div class="info"><h4>Dr. Danilo Portugal CRO GO 18958</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1We8daYIYdfwrhSNM-SsVnRDuKZ0PY9vM=w1325-h689-iv1?auditContext=prefetch" alt="Dra. Bruna Nogueira" loading="lazy">
+        <div class="info"><h4>Dr. Joaquin Augusto CRO GO 17980</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1osQo8GGPqmxWi1u1RN8wPYFjsTMaR38D=w1325-h689-iv1?auditContext=prefetch" alt="Dr. Marcos Lima" loading="lazy">
+        <div class="info"><h4>Dr. Fernando Costa CRO GO 18121</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/1QGoxHwGKIOzhydSmN8Alvqf7IBiG1OMo=w1325-h689-iv1?auditContext=prefetch" alt="Dra. Carla Mendes" loading="lazy">
+        <div class="info"><h4>Dra. Beatriz CRO GO 10797</h4><p style="opacity:.9"></p><p></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article><article class="member reveal in">
+        <img src="https://lh3.google.com/u/1/d/11CUpQLyCFiuNlUOJqcFnIZQ5J2MuEuFh=w1325-h689-iv1?auditContext=forDisplay" alt="Dr. Pedro Ramos" loading="lazy">
+        <div class="info"><h4>Dr. Bruno Lima CRO GO 16120</h4><p style="opacity:.9"></p><p></p></div>
+        <div class="actions"></div>
+        <div class="bar" aria-hidden="true"></div></article></div>
+    
+  </section>
+
+
+  
+
+  
+
+  <section id="whatsapp">
+    <h3 class="section-title">Converse Conosco</h3>
+    <p class="section-sub">Tire dúvidas, apoie a campanha e receba materiais exclusivos.</p>
+    <a href="https://wa.me/5561992495005?text=Ol%C3%A1%2C%%20%20%C3%A9%20Wilker.%20Gostaria%20de%20saber%20mais%20sobre%20a%20Chapa%202%3A%20objetivos%2C%20propostas%20e%20como%20apoiar.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F" class="btn btn-primary" id="wa-btn" target="_blank" rel="noopener" style="transform: translateY(0px);">Abrir WhatsApp</a>
+  </section>
+
+  <footer>
+    <small>© 2025 Vem pro Lado Certo — Chapa 2 • Pela valorização dos dentistas</small>
+  </footer>
+
+  
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    /* ===== DATA ====== */
+    const DATA = {
+      whatsapp: { link: 'https://wa.me/5561992495005?text=Ol%C3%A1%2C%20meu%20nome%20%C3%A9%20Wilker.%20Gostaria%20de%20saber%20mais%20sobre%20a%20Chapa%202%3A%20objetivos%2C%20propostas%20e%20como%20apoiar.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F' },
+      equipe: [
+        { nome:'Dra. Ana Silva', area:'Clínica Geral', cargo:'Presidente', bio:'20 anos de prática clínica e gestão.', foto:'https://picsum.photos/seed/d1/600/600', wa:'#' },
+        { nome:'Dr. João Souza', area:'Odontopediatria', cargo:'Vice', bio:'Saúde pública e infância.', foto:'https://picsum.photos/seed/d2/600/600', wa:'#' },
+        { nome:'Dra. Bruna Nogueira', area:'Estética', cargo:'Diretoria', bio:'Reabilitação estética e laminados.', foto:'https://picsum.photos/seed/d3/600/600', wa:'#' },
+        { nome:'Dr. Marcos Lima', area:'Implantodontia', cargo:'Diretoria', bio:'Cirurgia guiada e enxertos.', foto:'https://picsum.photos/seed/d4/600/600', wa:'#' },
+        { nome:'Dra. Carla Mendes', area:'Saúde Pública', cargo:'Diretoria', bio:'Atenção básica e prevenção.', foto:'https://picsum.photos/seed/d5/600/600', wa:'#' },
+        { nome:'Dr. Pedro Ramos', area:'Ortodontia', cargo:'Conselho', bio:'Alinhadores e orto preventiva.', foto:'https://picsum.photos/seed/d6/600/600', wa:'#' },
+        { nome:'Dra. Luiza Rocha', area:'Perícia e Legal', cargo:'Conselho', bio:'Pareceres e perícia odontológica.', foto:'https://picsum.photos/seed/d7/600/600', wa:'#' },
+        { nome:'Dr. Rafael Torres', area:'Clínica Geral', cargo:'Conselho', bio:'Clínica integrada e urgência.', foto:'https://picsum.photos/seed/d8/600/600', wa:'#' },
+        { nome:'Dra. Júlia Freitas', area:'Estética', cargo:'Conselho', bio:'Prótese e CAD/CAM.', foto:'https://picsum.photos/seed/d9/600/600', wa:'#' },
+        { nome:'Dr. Henrique Alves', area:'Implantodontia', cargo:'Conselho', bio:'Reabilitação total.', foto:'https://picsum.photos/seed/d10/600/600', wa:'#' },
+        { nome:'Dra. Tainá Costa', area:'Saúde Pública', cargo:'Conselho', bio:'Programas escolares.', foto:'https://picsum.photos/seed/d11/600/600', wa:'#' },
+        { nome:'Dr. Vinícius Prado', area:'Ortodontia', cargo:'Conselho', bio:'Biomecânica e ancoragem.', foto:'https://picsum.photos/seed/d12/600/600', wa:'#' },
+        { nome:'Dra. Fernanda Maia', area:'Odontopediatria', cargo:'Conselho', bio:'Cuidado centrado na criança.', foto:'https://picsum.photos/seed/d13/600/600', wa:'#' },
+        { nome:'Dr. Daniel Ribeiro', area:'Perícia e Legal', cargo:'Conselho', bio:'Auditoria e compliance.', foto:'https://picsum.photos/seed/d14/600/600', wa:'#' },
+        { nome:'Dra. Patrícia Luz', area:'Clínica Geral', cargo:'Conselho', bio:'Fluxos digitais.', foto:'https://picsum.photos/seed/d15/600/600', wa:'#' },
+        { nome:'Dr. Ícaro Pinto', area:'Estética', cargo:'Conselho', bio:'Onlays e laminados.', foto:'https://picsum.photos/seed/d16/600/600', wa:'#' },
+      ],
+      cases: [
+        { titulo:'Alta resolutividade em UBS', desc:'Mutirão preventivo reduziu cárie ativa em 22% em 6 meses.', tag:'Prevenção' },
+        { titulo:'Teleorientação efetiva', desc:'Triagem remota diminuiu faltas em 31%.', tag:'Digital' },
+        { titulo:'Defesa técnica bem sucedida', desc:'Perícia comprovou conformidade com protocolos.', tag:'Legal' },
+        { titulo:'Prótese CAD/CAM', desc:'Tempo de entrega caiu 40% com fluxo digital.', tag:'Inovação' },
+        { titulo:'Programa escolar', desc:'Cobertura de selantes chegou a 68%.', tag:'Infantil' }
+      ]
+    };
+
+    /* ===== PARTICLE FIELD (Canvas) ===== */
+    const canvas = document.getElementById('field');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    let w=0, h=0, particles=[];
+    const colors = ['#FFDF00','#009B3A','#6ac7ff','#d2f87b'];
+
+    function resizeCanvas(){ if(!canvas) return; w = canvas.width = innerWidth; h = canvas.height = Math.max(innerHeight*0.84, 420); }
+    function spawnParticles(){ if(!canvas) return; particles = Array.from({length: 160}, () => ({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*1.8+0.6, vx: (Math.random()-.5)*0.7, vy: (Math.random()-.5)*0.7, c: colors[Math.random()*colors.length|0] })); }
+    function stepParticles(){ if(!ctx) return; ctx.clearRect(0,0,w,h); for(const p of particles){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=p.c; ctx.globalAlpha=0.9; ctx.fill(); } for(let i=0;i<particles.length;i++) for(let j=i+1;j<i+22 && j<particles.length;j++){ const a=particles[i], b=particles[j]; const d= Math.hypot(a.x-b.x,a.y-b.y); if(d<120){ ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle='rgba(255,255,255,'+(0.12 - d/1000)+')'; ctx.stroke(); } } requestAnimationFrame(stepParticles); }
+    addEventListener('resize', ()=>{ resizeCanvas(); spawnParticles(); });
+    resizeCanvas(); spawnParticles(); stepParticles();
+
+    /* ===== Parallax Orbs & Button magnetism ===== */
+    addEventListener('mousemove', (e)=>{ const cx = innerWidth/2, cy = innerHeight/2; const dx = (e.clientX - cx)/cx, dy = (e.clientY - cy)/cy; document.querySelectorAll('.orb').forEach((o,i)=>{ o.style.transform = `translate(${dx*(6+i*2)}px, ${dy*(8+i*2)}px)`; }); });
+    document.querySelectorAll('.btn, .btn-primary, .btn-ghost').forEach(btn=>{ btn.addEventListener('mousemove', (ev)=>{ const r = btn.getBoundingClientRect(); const x = ev.clientX - r.left - r.width/2; const y = ev.clientY - r.top - r.height/2; btn.style.transform = `translate(${x*0.06}px, ${y*0.1}px)`; }); btn.addEventListener('mouseleave', ()=> btn.style.transform='translateY(0)'); });
+
+    /* ===== TEAM Render (pagination + filters) ===== */
+    const grid = document.getElementById('team-grid');
+    const pager = document.getElementById('team-pagination');
+    const pageSize = 8; let curPage = 0, view = DATA.equipe.slice();
+
+    function renderTeam(){ if(!grid) return; grid.innerHTML = ''; const start = curPage*pageSize; const slice = view.slice(start, start+pageSize); slice.forEach(m => { const el = document.createElement('article'); el.className = 'member reveal'; el.innerHTML = `
+        <img src="${m.foto}" alt="${m.nome}" loading="lazy" />
+        <div class="info"><h4>${m.nome}</h4><p style="opacity:.9">${m.cargo} — ${m.area}</p><p>${m.bio}</p></div>
+        <div class="actions"><a class="icon-btn" href="${m.wa}" target="_blank" aria-label="WhatsApp de ${m.nome}">💬</a></div>
+        <div class="bar" aria-hidden="true"></div>`; grid.appendChild(el); }); renderPager(); observeReveals(); }
+    function renderPager(){ if(!pager) return; pager.innerHTML = ''; const pages = Math.ceil(view.length / pageSize); for(let i=0;i<pages;i++){ const dot = document.createElement('button'); dot.className = 'page-dot'+(i===curPage?' active':''); dot.addEventListener('click',()=>{curPage=i;renderTeam();}); pager.appendChild(dot); } }
+    function applyFilters(q='', area=''){ const qq = q.toLowerCase(); view = DATA.equipe.filter(m => ((!area || m.area===area) && (m.nome.toLowerCase().includes(qq) || m.area.toLowerCase().includes(qq) || m.cargo.toLowerCase().includes(qq) || m.bio.toLowerCase().includes(qq)))); curPage = 0; renderTeam(); }
+
+    /* ===== Reveal Observer ===== */
+    let io; function observeReveals(){ if(io) io.disconnect(); io = new IntersectionObserver((entries)=>{ for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } } }, {threshold:.15}); document.querySelectorAll('.reveal:not(.in)').forEach(el=> io.observe(el)); }
+
+    /* ===== Carousel (Cases) ===== */
+    const track = document.getElementById('cases-track');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let cIndex = 0;
+
+    function renderSlides(){ if(!track) return; track.innerHTML = ''; DATA.cases.forEach(c => { const s = document.createElement('div'); s.className = 'slide reveal'; s.innerHTML = `<h4>${c.titulo}</h4><p>${c.desc}</p><span class="chip">${c.tag}</span>`; track.appendChild(s); }); observeReveals(); updateCarousel(); }
+    function updateCarousel(){ if(!track) return; const offset = -cIndex * 292; track.style.transform = `translateX(${offset}px)`; }
+    prev?.addEventListener('click',()=>{ cIndex = Math.max(0, cIndex-1); updateCarousel(); });
+    next?.addEventListener('click',()=>{ cIndex = Math.min(DATA.cases.length-1, cIndex+1); updateCarousel(); });
+
+    /* ===== Init renderers ===== */
+    renderTeam(); renderSlides();
+
+    // Update WhatsApp links
+    const wa = document.getElementById('wa-btn'); if(wa) wa.href = DATA.whatsapp.link;
+
+    /* ===== Diagnostics / Tests ===== */
+    const results = document.getElementById('test-results');
+    function report(ok, msg){ const li=document.createElement('li'); li.className= ok? 'pass' : 'fail'; li.textContent = (ok? '✔ ' : '✖ ') + msg; results && results.appendChild(li); console[ok? 'log':'error'](msg); }
+
+    try { report(!!document.getElementById('field'), 'Canvas #field existe no DOM'); } catch(e){ report(false, 'Canvas #field não encontrado'); }
+    try { report(!!ctx && typeof ctx.clearRect==='function', 'Canvas 2D context inicializado'); } catch(e){ report(false, 'Falha ao inicializar 2D context'); }
+    try { report(Array.isArray(particles) && particles.length>=0, 'Módulo de partículas carregado'); } catch(e){ report(false, 'Partículas não inicializadas'); }
+    try { report(document.getElementById('team-grid')!=null, 'Grid da equipe presente'); } catch(e){ report(false, 'Grid da equipe ausente'); }
+    try { report((DATA.equipe?.length||0) >= 16, 'Dataset da equipe possui 16+ membros'); } catch(e){ report(false, 'Dataset da equipe insuficiente'); }
+    try { report(document.getElementById('cases-track')!=null, 'Carrossel de casos presente'); } catch(e){ report(false, 'Carrossel ausente'); }
+    try { const d = document.getElementById('defesa'); report(!!d && d.querySelectorAll('.defesa-card').length>=6, 'Seção de Defesa possui 6+ cards'); } catch(e){ report(false, 'Seção de Defesa incompleta'); }
+
+    /* ===== Non-destructive filter test (sample) ===== */
+    try {
+      const prevView = view.slice();
+      applyFilters('', '');
+      report(true, 'Filtro básico aplicado (sem erro)');
+      view = DATA.equipe.slice(); curPage=0; renderTeam();
+    } catch(e){ report(false, 'Falha no teste de filtro'); }
+
+    /* ====== COUNTDOWN TO OCT 3 (dynamic year) ====== */
+    function getTargetDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      let target = new Date(year, 9, 3, 0, 0, 0, 0); // 3 out, meia-noite local
+      // If already past target (end of that day), move to next year
+      if (now > target) target = new Date(year + 1, 9, 3, 0, 0, 0, 0);
+      return target;
+    }
+
+    const target = getTargetDate();
+    const targetDateEl = document.getElementById('target-date');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const titleEl = document.getElementById('countdown-title');
+    const whereBtn = document.getElementById('where-btn');
+    const addCalendarBtn = document.getElementById('add-calendar');
+
+    const opts = { day: '2-digit', month: 'long', year: 'numeric' };
+    if (targetDateEl) targetDateEl.textContent = target.toLocaleDateString('pt-BR', opts);
+
+    function two(n){ return String(n).padStart(2,'0'); }
+
+    function updateCountdown(){
+      const now = new Date();
+      let diff = target - now;
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        titleEl.textContent = 'É dia de votar! Saia para votar agora.';
+        if (whereBtn) whereBtn.href = 'https://www.google.com/maps/search/local+de+votação';
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+      const minutes = Math.floor(diff / (1000*60));
+      diff -= minutes * (1000*60);
+      const seconds = Math.floor(diff / 1000);
+
+      daysEl.textContent = String(days);
+      hoursEl.textContent = two(hours);
+      minutesEl.textContent = two(minutes);
+      secondsEl.textContent = two(seconds);
+
+      const dayWord = days === 1 ? 'dia' : 'dias';
+      titleEl.textContent = `Faltam ${days} ${dayWord} — é em ${target.toLocaleDateString('pt-BR', {day:'2-digit', month:'long'})}`;
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(() => {
+      updateCountdown();
+      if (new Date() >= target) clearInterval(countdownInterval);
+    }, 1000);
+
+    // Map button: try geolocation for better results, fallback to generic search
+    whereBtn && whereBtn.addEventListener('click', (e) => {
+      if (!navigator.geolocation) return; // let default happen
+      e.preventDefault();
+      const proceedWithDefault = () => { window.open(whereBtn.href, '_blank', 'noopener'); };
+      const geolocationTimeout = setTimeout(proceedWithDefault, 4000);
+      navigator.geolocation.getCurrentPosition((pos) => {
+        clearTimeout(geolocationTimeout);
+        const lat = pos.coords.latitude.toFixed(6);
+        const lng = pos.coords.longitude.toFixed(6);
+        const mapsUrl = `https://www.google.com/maps/search/${encodeURIComponent('local de votação')}/@${lat},${lng},14z`;
+        window.open(mapsUrl, '_blank', 'noopener');
+      }, (err) => {
+        clearTimeout(geolocationTimeout);
+        proceedWithDefault();
+      }, { maximumAge: 60000, timeout: 3500, enableHighAccuracy: false });
+    });
+
+    // Add to Google Calendar (all-day event for the voting day)
+    addCalendarBtn && addCalendarBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const year = target.getFullYear();
+      const month = String(target.getMonth()+1).padStart(2,'0');
+      const day = String(target.getDate()).padStart(2,'0');
+      const start = `${year}${month}${day}`;
+      const endDate = new Date(target.getTime() + 24*60*60*1000);
+      const endYear = endDate.getFullYear();
+      const endMonth = String(endDate.getMonth()+1).padStart(2,'0');
+      const endDay = String(endDate.getDate()).padStart(2,'0');
+      const end = `${endYear}${endMonth}${endDay}`;
+      const text = encodeURIComponent('Dia de votação — Vem pro Lado Certo (Chapa 2)');
+      const details = encodeURIComponent('Lembrete para comparecer ao seu local de votação. Consulte local no Google Maps.');
+      const location = encodeURIComponent('');
+      const gcalUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&details=${details}&location=${location}&dates=${start}/${end}`;
+      window.open(gcalUrl, '_blank', 'noopener');
+    });
+
+    /* ===== Final: observe reveals to trigger animations ===== */
+    observeReveals();
+
+  }); // end DOMContentLoaded
+  </script>
+
+  <!-- Live reload helper (only used during development; remove in production) -->
+  <script>
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && (typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet")) {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			try {
+				var socket = new WebSocket(address);
+				socket.onmessage = function (msg) {
+					if (msg.data == 'reload') window.location.reload();
+					else if (msg.data == 'refreshcss') refreshCSS();
+				};
+			} catch (e) { /* ignore if ws not available */ }
+		})();
+	}
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
